@@ -1,0 +1,5 @@
+mat-form-field,
+textarea, input {
+    margin-top: 1em;
+    width: 100%;
+}

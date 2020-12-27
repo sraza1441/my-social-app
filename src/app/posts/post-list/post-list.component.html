@@ -1,0 +1,17 @@
+<mat-accordion multi = "true" *ngIf = "posts.length >0">
+    <mat-expansion-panel *ngFor = " let post of posts">
+        <mat-expansion-panel-header>
+            {{post.title}}
+        </mat-expansion-panel-header>
+        <p>{{post.content}}</p>
+        <button mat-mini-fab color="warn" class="align-right" (click)="onDelete(post.id)">
+            <mat-icon >delete</mat-icon>
+        </button>
+        <a mat-mini-fab color="green" class="align-right" [routerLink]="[ '/edit', post.id ]">
+             <mat-icon >edit</mat-icon>
+        </a>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<p class="info mat-body-1" *ngIf = "posts.length <=0">No Posts added Yet!!</p>
+

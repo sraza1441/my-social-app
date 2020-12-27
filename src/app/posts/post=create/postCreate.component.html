@@ -1,0 +1,47 @@
+
+<mat-card>
+    <form (submit)="onSavePost(postForm)" #postForm = "ngForm">
+        <mat-form-field>
+            <mat-label>
+                Post Title
+            </mat-label>
+            <input 
+            matInput 
+            type="text" 
+            name="title" 
+            [ngModel]="post?.title"
+            required
+            #title="ngModel">
+
+            <mat-error *ngIf="title.invalid">Please Enter a Post Title.</mat-error>
+
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>
+                Write the Post Content here....
+            </mat-label>
+
+            <!-- ngModule is a two way binding of data accessing -->
+
+            <textarea 
+            matInput 
+            rows="4" 
+            name="content" 
+            [ngModel]="post?.content"
+            required
+            #content="ngModel"></textarea> 
+
+            <mat-error *ngIf="content.invalid">Please Enter a Post Content.</mat-error>
+
+
+        </mat-form-field>
+    
+        <button 
+        mat-raised-button
+        color ="primary" 
+        type="submit">Save Post</button>
+    
+    </form>
+    </mat-card>
+
